@@ -11,3 +11,11 @@ services:
       - POSTGRES_DB=simanjadb
       - POSTGRES_USER=simanja
       - POSTGRES_PASSWORD=simanja123
+  app-simanja-api-services:
+    image: venyanggraini93/simanja-api-services:0.0.1.SNAPSHOT
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db-simanja/simanjadb
+    depends_on:
+      - db-simanja
+    ports:
+      - 9000:9000
