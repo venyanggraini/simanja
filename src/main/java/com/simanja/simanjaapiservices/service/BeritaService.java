@@ -27,4 +27,8 @@ public class BeritaService {
     public List<Berita> getTopThreBerita() {
         return repository.findFirst3ByOrderByPublishDesc();
     }
+
+    public Berita getBerita(Long id) {
+        return repository.findById(id).get();
+    }
 }

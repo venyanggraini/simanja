@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ public class BeritaController {
     private BeritaService beritaService;
 
     @GetMapping("/listBerita")
-    public List<Berita> findAll() {
+    public List<Berita> showAllBerita() {
         return beritaService.getAllBerita();
     }
 
@@ -34,5 +35,10 @@ public class BeritaController {
     @GetMapping("/topThreeBerita")
     public List<Berita> topThreeBerita() {
         return beritaService.getTopThreBerita();
+    }
+
+    @GetMapping("/detailBerita/{id}")
+    public Berita showBerita(@PathVariable Long id) {
+        return beritaService.getBerita(id);
     }
 }
