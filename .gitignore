@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### Ignore ###
-.db-simanja
+db-simanja
